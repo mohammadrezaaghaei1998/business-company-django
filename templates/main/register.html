@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% comment %} {% load socialaccount %} {% endcomment %}
+
+{% block content %}
+<div class="container registration-container mx-auto">
+  <div class="row">
+      <div class="col-md-6 mx-auto">
+          <div class="registration-box">
+              <h2>Register</h2>
+              <p>Create a new account to get started.</p>
+              <div class="user-info-box">
+                  <h2>Registration Information</h2>
+                  <form method="post" action="{% url 'signup' %}">
+                      {% csrf_token %}
+
+                      {% for field in form %}
+                          <div class="form-group">
+                              {{ field }}
+                          </div>
+                      {% endfor %}
+                      <button type="submit" class="btn btn-dark btn-block">Register</button>
+                      <a href="{% url 'login' %}" style="color:black;">Already have an account?</a>
+                      {% comment %} <a href="{% provider_login_url 'google' %}" style="padding-left:50px; color:#862d85;">
+                        <img src="{% static "assets/img/google-logo.png" %}" alt="Google Logo">google hesabınızla devam edin
+                      </a> {% endcomment %}
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock content %}
+

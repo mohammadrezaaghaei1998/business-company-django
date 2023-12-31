@@ -1,0 +1,36 @@
+.container {
+    margin-top: 50px;
+    
+  }
+  .collaboration-description {
+    background-color: #ffffff;
+    color: #201f1f;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-bottom:50px;
+
+  }
+  .collaboration-description h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .collaboration-description p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  .collaboration-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    color: black;
+  }
+  .collaboration-form form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .collaboration-form .form-group {
+    margin-bottom: 20px;
+  }

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container login-container mx-auto">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="login-box">
+                <h2>Login</h2>
+                <div class="user-info-box">
+                    <h2>User Information</h2>
+                    <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}" placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="{{ form.password.name }}" id="{{ form.password.id_for_label }}" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-dark btn-block mb-">Login</button>
+                        <a href="{% url 'reset_password' %}" style="color:black;">Forgot Password?</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

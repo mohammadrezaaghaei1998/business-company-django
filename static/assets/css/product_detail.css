@@ -1,0 +1,23 @@
+.product_detail{
+    margin-top: 130px;
+    margin-bottom: 130px;
+    background: white;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.836);
+    
+
+}
+
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    color: black;
+}

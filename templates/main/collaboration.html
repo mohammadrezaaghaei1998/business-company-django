@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}  
+<div class="container fade-up">
+    <div class="collaboration-description text-center">
+      <h2>Welcome to AMIRAN FOR INVESTMENT</h2>
+      <p>We believe in the power of collaboration and providing a platform for exceptional products to thrive. If you have a unique product that you're passionate about and would like to share it with a wider audience, our collaboration program is designed just for you.</p>
+    </div>
+    <div class="How it works">
+      <h2>How it works:</h2>
+          <p><strong>1.Submit Your Product:</strong>
+              Share the details of your product by filling out our easy-to-use Product Collaboration Information Form.
+              Provide information such as the product name, quantity, quality, origin, a captivating description,
+              and multiple images to showcase its uniqueness.
+          </p>
+    </div>
+    <div class="How it works">
+      <p><strong>2.Thorough Review Process:</strong>
+          Our dedicated team carefully reviews each submission to ensure that the products featured on
+          our platform meet our high standards of quality and innovation.
+          We appreciate the diversity of ideas and are excited to discover products that stand out.
+      </p>
+    </div>
+    <div class="How it works">
+      <p><strong>3.Acceptance or Feedback:</strong>
+          Following the review process, we will notify you of the acceptance of your product for collaboration.
+          If your product aligns with our vision and resonates with our audience,
+          we'll be thrilled to feature it on our platform.
+      </p>
+    </div>
+    <div class="How it works">
+      <p><strong>4.Commence Collaboration:</strong>
+          Once accepted, our team will reach out to discuss the details of the collaboration.
+          This includes logistics, sales strategies,
+          and any additional information needed to make the collaboration a success.
+      </p>
+    </div>
+    <div class="How it works">
+      <p><strong>5.Join a Community of Innovators:</strong>
+          Become part of a community of like-minded individuals and businesses that share a passion for innovation.
+          Our platform is not just about selling products;
+          it's about building lasting connections and supporting each other's growth.
+      </p>
+    </div>
+  
+    <div class="collaboration-form mt-4">
+      <h2 class="text-center mb-4">Submit Your Product for Collaboration</h2>
+      <form action="{% url 'collaboration' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="productName">Product Name</label>
+          <input type="text" class="form-control" id="productName" name="product_name" placeholder="Enter product name" required>
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Enter quantity" required>
+        </div>
+        <div class="form-group">
+          <label for="quality">Quality</label>
+          <input type="text" class="form-control" id="quality" name="quality" placeholder="Enter quality" required>
+        </div>
+        <div class="form-group">
+          <label for="origin">Origin</label>
+          <input type="text" class="form-control" id="origin" name="origin" placeholder="Enter origin" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description" name="description" placeholder="Enter product description" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="productImages">Product Images (4 or more)</label>
+          <input type="file" class="form-control-file" id="productImages" name="product_images" multiple required>
+        </div>
+        <div class="form-group">
+          <label for="whatsapp">Contact Number(Whatsapp)</label>
+          <input type="text" class="form-control" id="whatsapp" name="whatsapp" placeholder="Enter WhatsApp number" required>
+        </div>
+        {% if user.is_authenticated %}
+            <button type="submit" class="btn btn-dark my-2 my-sm-0 btn-block btn-outline-light">Submit for Collaboration</button>
+        {% else %}
+            <a href="{% url 'login' %}">
+                <button type="button" class="btn btn-dark my-2 my-sm-0 btn-block btn-outline-light">Log in to Submit</button>
+            </a>
+        {% endif %}
+      </form>
+    </div>
+</div>
+{% endblock content %}
+
+
+
+

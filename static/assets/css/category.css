@@ -1,0 +1,51 @@
+.card {
+    border: none; 
+}
+
+.card-img-top {
+    border-radius: 50%;
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover;
+    margin: 0 auto;
+    
+}
+
+.card-body {
+    text-align: center;
+    padding: 10px;
+
+}
+
+.card-title {
+    margin-top: auto;
+    font-size: 14px; 
+    margin-bottom: 60px;
+
+}
+
+
+
+
+.category{
+    background: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.836);
+    padding: 20px;
+    
+
+}
+
+#category{
+    color:black;
+}
+
+
+
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .card {
+        width: 120%; 
+    }
+} 

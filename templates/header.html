@@ -1,0 +1,80 @@
+{% load static %}
+<div class="container-fluid bg-dark text-white pt-2">
+  <div class="row" id="row">
+    <div class="col-md-6">
+      <div class="date-container">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAAXNSR0IArs4c6QAAAgRJREFUOE+11EuoTXEUx/HPlUfKDAPc5FnyijKUKBMJEWZCmHjkMSBJ3ZIoMfEYiEIGBmRAKCaUSCbkMfMIA4mQSIj/qv/WvtvZ5+yJXafT3v/1/661fuvR5T88XQ2ZgzEGn/EMP9rdawcdiS1YjFElSABv4Vz6fgo/qw7qoD3YjT54i4f5NwQTMQ398Bzz8bQMbgU9jI14ifW40iLVQdiX7T5gFh4XdlXoDuzHVSzHlw6az8m27zAjZ6UMHZvTCINJSc+PJWAU6gJupyLtqjjaikM4jVVxVoaewJqU9upcgPLd4XiTormMBRVo3xzMOERxXxXQ+I8IozBDU5F+VS62g4bpNhxMjA04VkBH4HVOcWkLHTtBQ65HhQQFdEpumZMJvrYNtHoUUoQkA/EVNzG7gI7Ok3I+tcayFtCiUNWjnbiD6N+Q7xrmFdD++JZ7bWrD0S2bRZ9GlEejd8vVv465eWJ6TUgDJ8dTd6zDQlwqQ1ekpXEGF5O+SxqACpPxOcP3eUd8L0Ojne5jehJ9Ow40AIfWoWmAI6iz1eaP99hG93KvxkLZi9818LCNcZ6QCnUEm+pmP77HFrqBYTmKGL8HuQ9jMCan85nYnJbKgFycAP51Xrf6urEnrbaVlVEuB/0ivcSKDKe9nk6bP/pvUdY5Nv+ntL2e5Ezu1knTCdqgVv+a/AHlImQWZ0CZVQAAAABJRU5ErkJggg=="/>
+        <span class="current-date" style="padding-left:5px;">
+          {% now "Y-m-d" %}
+        </span>
+      </div>
+    </div>
+
+    <div class="col-md-6 text-right">
+      {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}" class="text-white">Sign Out</a>
+      {% else %}
+        <a href="{% url 'login' %}" class="text-white">Login</a> |
+        <a href="{% url 'signup' %}" class="text-white">Register</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">BUSINESS 724</a>
+    {% comment %} <a class="navbar-brand" href="#">
+        <img src="{% static 'assets/images/logo.png' %}" alt="Your Logo" height="100" with="100" style="border-radius:50%;">
+    </a> {% endcomment %}
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="#category">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'collaboration' %}">Collaboration</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'investment' %}">investment</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about_us">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#contact_us">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'job_application_form' %}">Apply for Job</a>
+        </li>
+       
+
+        
+        
+      </ul>
+      {% if user.is_authenticated %}
+        <a href="{% url 'dashboard' %}">
+      {% else %}
+        <a href="{% url 'login' %}">
+      {% endif %}
+        <img class="account" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAAXNSR0IArs4c6QAAAchJREFUOE+11E2ozkEUx/HPdRdWuFiQ97ebBZGyVVYWbEgpyYYiImQpucrKQhZYuEoklFI2JBuyQLIhSiQLSumKjQV56Wj+tzHm/zwP5Wye5z/zm+85c+ac0+c/WF+PzAEsxEe8wtdO5zpBZ2Av1mJ+BgngbVzCeXwrHbRBD+Aw+rvc5CVW40Wuq0GPYV+PaQnZe6zA8+ZMCd2D438BbKSvsRwjsZBDZydvYyvQC7iK6QjHCyqa09heQk9iZ0V8EEey9XF4jDmF9gem4V0TafxGbiZXoIvxtFg/hR0V7TYMN9Dw8LYll5GrR8XeGWyt6M9iSwONaJ60QE9gd7Y3MTVANERpd7CygcYjxQu22Tlcw8zUEHNbhDeibhtovPhnjPmHcsqPxGPvykvqJlYV0FuI699LDxlOl8QVU8eNL/RrcD2HbsTFTHQZm/C9JfpFuIvIcdibNCO+lB31MHVGiOLA+hRhjRs9H0FMSJsbcCX+l9BZeICpSfgBR3E/ldUULE2Ta3PmKebF/ua7NlAG02iL2u3FhlN7Rkf9srbRFz0+FIXcoSKiBA+lmfqb826TfxLWYRnm4ROeIaoi0jQaXU7tBu3l+n9ofgLWN04Wgtd8UwAAAABJRU5ErkJggg=="/>
+      </a>
+      
+
+      <form class="form-inline my-2 my-lg-0" action="{% url 'search_view' %}" method="get">
+        {% csrf_token %}
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+        <button class="btn btn-dark my-2 my-sm-0 btn-outline-light" type="submit">Search</button>
+    </form>
+      
+    </div>
+  </nav>

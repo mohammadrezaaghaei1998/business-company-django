@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container order-product">
+    <div class="product-card">
+        <h2 style="margin-left:20px;">{{ investment.name }}</h2>
+        <div class="product-info">
+            <i class="fas fa-percent"></i> Profitability: {{ investment.profitability_percentage }}%<br>
+            <i class="far fa-clock"></i> Duration: {{ investment.duration_staying_money }} months<br>
+            <i class="fas fa-map-marker-alt"></i> Origin: {{ investment.origin }}<br>
+            <small>Start Date: {{ investment.start_date }}</small><br>
+            <small>End Date: {{ investment.end_date }}</small><br>
+            <i class="fas fa-money-bill"></i> Amount Invested: ${{ investment.amount_invested }}<br>
+            <i class="fas fa-toggle-on"></i> Active: {% if investment.is_active %}Yes{% else %}No{% endif %}
+        </div>
+    </div>
+
+    <div class="order-form">
+        <form method="post" action="{% url 'order_investment' investment_id=investment.id %}">
+            {% csrf_token %}
+            {% comment %} <label for="name">Name:</label> {% endcomment %}
+            <input type="text" name="name" placeholder="Enter your name" required>
+
+            {% comment %} <label for="email">Email:</label> {% endcomment %}
+            <input type="email" name="email" placeholder="Enter your Email" required>
+
+            {% comment %} <label for="address">Address:</label> {% endcomment %}
+            <textarea name="address" placeholder="Enter your address" required></textarea>
+
+            {% comment %} <label for="phone_number">Phone Number:</label> {% endcomment %}
+            <input type="text" name="phone_number" placeholder="Enter your phone number" required>
+
+            <button class="btn btn-dark btn-outline-light" type="submit ">Submit Order</button>
+        </form>
+    </div>
+</body>
+</div>
+
+{% endblock content %}
+
+
+
+

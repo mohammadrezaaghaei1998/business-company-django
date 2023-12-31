@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content  %}
+<div class="container order-success">
+    <h2>Job Application Submitted Successfully!</h2>
+        <p>Thank you for applying to our company. Your job application has been successfully submitted.</p>
+        <p>We will review your information and get in touch with you soon.</p>
+    <div class="text-center mt-4">
+        <a href="{% url 'home' %}"  style="color:white;">Back to Home</a>
+    </div>
+</div>
+
+{% endblock content  %}
+
+

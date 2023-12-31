@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container order-success">
+    <h2>Your Request Has Been Successfully Submitted</h2>
+        <p>hank you for reaching out to us! We have received your request, and our team is on it.</p>
+        <p>Within the next 24 hours, our dedicated team will carefully review your request and get back to you with the necessary information.</p>
+        {% comment %} <p>We value your trust in us and appreciate your business. If you have any urgent inquiries or additional information to provide, please feel free to reach out to our customer support.</p> {% endcomment %}
+        <div class="text-center mt-4">
+        <a href="{% url 'home' %}"  style="color:white;">Back to Home</a>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+

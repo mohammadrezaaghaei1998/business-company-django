@@ -1,0 +1,71 @@
+.subfield_detail {
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-bottom: 110px;
+    padding-bottom: 20px;
+    padding-top: 55px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.836);
+}
+/* 
+.subfield_product {
+    position: relative;
+    background: black;
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: background 0.3s ease, color 0.3s ease; 
+}
+
+.subfield_product:hover {
+    background: white; 
+    color: black; 
+}
+
+.subfield_product::before,
+.subfield_product::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2); 
+    border-radius: 10px;
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+
+.subfield_product:hover::before,
+.subfield_product:hover::after {
+    opacity: 1; 
+}
+
+.subfield_product::before {
+    top: -50%;
+    left: -50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.subfield_product::after {
+    bottom: -50%;
+    right: -50%;
+    transform: translate(50%, 50%) rotate(45deg); 
+}
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

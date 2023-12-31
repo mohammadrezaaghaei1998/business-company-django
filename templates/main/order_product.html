@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container order-product">
+    <div class="product-card">
+        <h2>{{ product.name }}</h2>
+        <div class="product-info">
+            <p><i class="fas fa-dollar-sign"></i> Price: ${{ product.price }}</p>
+            <p><i class="fas fa-info-circle"></i> Information: {{ product.information }}</p>
+            <p><i class="fas fa-align-left"></i> Description: {{ product.description }}</p>
+            <p><i class="fas fa-globe"></i> Origin: {{ product.origin }}</p>
+            <p><i class="fas fa-box"></i> Quantity: {{ product.quantity }}</p>
+            <p><i class="fas fa-star"></i> Quality: {{ product.quality }}</p>
+        </div>
+    </div>
+
+    <div class="order-form">
+        <form method="post" action="{% url 'order_product' product.id %}">
+            {% csrf_token %}
+            {% comment %} <label for="name">Name:</label> {% endcomment %}
+            <input type="text" name="name" placeholder="Enter your name" required>
+
+            {% comment %} <label for="email">Email:</label> {% endcomment %}
+            <input type="email" name="email" placeholder="Enter your Email" required>
+
+            {% comment %} <label for="address">Address:</label> {% endcomment %}
+            <textarea name="address" placeholder="Enter your address" required></textarea>
+
+            {% comment %} <label for="phone_number">Phone Number:</label> {% endcomment %}
+            <input type="text" name="phone_number" placeholder="Enter your phone number" required>
+
+            <button class="btn btn-dark btn-outline-light" type="submit ">Submit Order</button>
+        </form>
+    </div>
+</body>
+</div>
+
+{% endblock content %}
+
+
+
+

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+
+<section class="py-5" style="margin-top:-40px;">
+    <div class="container services">
+        <div class="row">
+            <div class="col-md-6 fade-up">
+                <img src="{% static 'assets/images/about_us.jpg' %}" alt="About Us Image" class="img-fluid rounded">
+            </div>
+  
+            <div class="col-md-6 fade-up" style="animation-delay: 0.5s;">
+                <h2 class="font-weight-bold" id="about_us">About Us</h2>
+                <p class="lead">
+                  Welcome to "AMIRAN FOR INVESTMENT", your hub for global trade, investment, and careers in Oman.
+                   As a dynamic newcomer, we simplify international transactions, drive strategic investments,
+                    and offer exciting career paths. Based in Muscat,
+                     we're dedicated to propelling businesses forward in the dynamic global marketplace.
+                      Join us on this journey towards simplified trade, strategic investments,
+                       and boundless career opportunities.
+                </p>
+               
+            </div>
+        </div>
+    </div>
+</section>
+
+    {% comment %} <section id="about" class="py-5" style="margin-top:-50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="section-heading text-uppercase" style="color:white;">Our Branches</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-2"> 
+                <div class="col-lg-12 mb-2 pt-2" style="background:white; border-bottom:2px solid white; border-radius:3px; box-shadow: 0 4px 6px rgba(255, 255, 255, 0.836);">
+                    <h3>Branches</h3>
+                    <div class="row">
+                        <div class="col-md-3 mb-3"> 
+                            <p><strong>Location:</strong> Country Name / City</p>
+                        </div>
+                        <div class="col-md-3 mb-3"> 
+                            <p><strong>Number:</strong> Branch Phone Number</p>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <p><strong>Address:</strong> Branch Address</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> {% endcomment %}
+    <section id="about" class="py-5" style="margin-top: -50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="section-heading text-uppercase" style="color: white;">Our Branches</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-2">
+                {% for branch in branches %}
+                    <div class="col-lg-12 mb-2 pt-2" style="background: white; border-bottom: 2px solid white; border-radius: 3px; box-shadow: 0 4px 6px rgba(255, 255, 255, 0.836);">
+                        <h3>{{ branch.name }}</h3>
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <p><strong>Location:</strong> {{ branch.country }}/{{ branch.city }} </p>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <p><strong>Number:</strong> {{ branch.number }}</p>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <p><strong>Address:</strong> {{ branch.address }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
+
+
+

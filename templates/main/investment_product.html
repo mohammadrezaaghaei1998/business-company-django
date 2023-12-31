@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+<div class="container mt-5 fade-up">
+    <div class="row">
+        {% for investment in investments %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'assets/images/bk.jpg' %}" class="card-img-top rounded-image" alt="Image Alt Text">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ investment.name }}</h5>
+                        <p class="card-text">
+                            <i class="fas fa-percent"></i> Profitability: {{ investment.profitability_percentage }}%<br>
+                            <i class="far fa-clock"></i> Duration: {{ investment.duration_staying_money }} months<br>
+                            <i class="fas fa-map-marker-alt"></i> Origin: {{ investment.origin }}<br>
+                            <small>Start Date: {{ investment.start_date }}</small><br>
+                            <small>End Date: {{ investment.end_date }}</small><br>
+                            <i class="fas fa-money-bill"></i> Amount Invested: ${{ investment.amount_invested }}<br>
+                            <i class="fas fa-toggle-on"></i> Active: {% if investment.is_active %}Yes{% else %}No{% endif %}
+                        </p>
+                        <p class="card-description">{{ investment.description }}</p>
+
+                       
+
+
+                        {% if user.is_authenticated %}
+                            <form id="addToFavoriteForm{{ investment.id }}" method="post" action="{% if investment %}{% url 'add_to_favorite' investment.id %}{% endif %}">
+                                {% csrf_token %}
+                                <button type="button" class="addToFavoriteBtn" data-investment-id="{{ investment.id }}" style="border: none; color:white; background: none; padding: 0; cursor: pointer;">
+                                    <i class="fas fa-heart" title="Add to Favorite"></i>
+                                </button>
+                            </form>
+                        {% else %}
+                        <form method="post" action="{% url 'login' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="addToFavoriteBtn" style="border: none; color:white; background: none; padding: 0; cursor: pointer;">
+                                <i class="fas fa-heart" title="Add to Favorite"></i>
+                            </button>
+                        </form>
+                        {% endif %}
+
+
+
+
+                        <li class="fas fa-share" title="Share" onclick="shareInvestment('{{ investment.name }}', '{{ investment.description }}')"></li>
+
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'order_investment' investment.id %}" title="Apply">
+                                <i class="fas fa-check" style="color:white;"></i>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'login' %}" title="Apply">
+                                <i class="fas fa-check" style="color:white;"></i>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div id="shareModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p id="share-content"></p>
+        <button onclick="copyLink()" class="btn btn-dark btn-outline-light">Copy Link</button>
+    </div>
+</div>
+       
+{% endblock content %}
+
+
+

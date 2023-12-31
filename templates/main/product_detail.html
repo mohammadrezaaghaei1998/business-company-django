@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+{% comment %} <div class="container product_detail">
+    <div class="row">
+
+        <div class="col-md-4">
+          <div id="carouselExample" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row">
+
+                  <div class="col-md-6">
+                    <img src="{% static 'assets/images/bk.jpg' %}" class="d-block w-100" style=" height: 250px;" alt="Product 1">
+                  </div>
+
+                  <div class="col-md-6">
+                    <img src="{% static 'assets/images/3.jpg' %}" class="d-block w-100" alt="Product 2">
+                    <img src="{% static 'assets/images/2.jpg' %}" class="d-block w-100 mt-2" alt="Product 3">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Product Name 1</h5>
+            <p class="card-text" style="background:white; color:black;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+            <p class="card-text"  style="background:white; color:black;"><strong>Price:</strong> $19.99</p>
+            <p class="card-text"  style="background:white; color:black;"><strong>Availability:</strong> In Stock</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> {% endcomment %}
+
+
+  <div class="container product_detail">
+    {% if product %}
+        <div class="row">
+            <div class="col-md-6">
+              <div id="carouselExample{{ product.id }}" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  {% for image in images %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                      <img src="{{ image.image.url }}" class="d-block  mx-auto"   style="max-width: 50%; height: auto;" alt="Product Image">
+                    </div>
+                  {% endfor %}
+                
+                </div>
+                <a class="carousel-control-prev" href="#carouselExample{{ product.id }}" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExample{{ product.id }}" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+              </a>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text" style="background: white; color: black;">
+                          <i class="fas fa-cubes"></i><strong>Quantity:</strong>  {{ product.quantity }}
+                      </p>
+                      <p class="card-text" style="background: white; color: black;">
+                        <i class="fas fa-dollar-sign"></i> <strong>Price:</strong>  ${{ product.price }}
+                      </p>
+                      <p class="card-text" style="background: white; color: black;">
+                        <i class="fas fa-star"></i><strong>Quality:</strong>  {{ product.quality }}
+                      </p>
+                      <p class="card-text" style="background: white; color: black;">
+                        <i class="fas fa-globe"></i> <strong>Origin:</strong>{{ product.origin }}
+                      </p>
+                    </div>
+                    {% comment %} <button type="button" class="btn btn-dark btn-outline-light">Order now</button> {% endcomment %}
+                    {% if user.is_authenticated %}
+                    <!-- If authenticated, show the order button with a link to the order form -->
+                    <a href="{% url 'order_product' product.id %}" class="btn btn-dark btn-outline-light">Order now</a>
+                    {% else %}
+                    <!-- If not authenticated, you can provide a link to the login page -->
+                    <a href="{% url 'login' %}" class="btn btn-dark btn-outline-light">Login to Order</a>
+                    {% endif %}
+                </div>
+                
+            </div>
+        </div>
+    {% else %}
+    <div style="text-align: center;">
+      <strong>
+        <p>We currently do not have the specified product in our inventory. Please check back soon,
+         as we are continuously updating our selection and will be adding new products shortly
+        </p>
+      </strong>
+  </div>    {% endif %}
+</div>
+
+
+
+{% endblock content %}
+
+

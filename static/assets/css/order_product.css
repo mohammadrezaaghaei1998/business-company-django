@@ -1,0 +1,105 @@
+.order-product {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    color: white;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.product-card,
+.order-form {
+    width: 100%;
+    margin-top: 20px; 
+    box-sizing: border-box; 
+}
+
+.product-card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.836);
+}
+
+.order-form {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.836);
+    align-items: center; 
+    text-align: center;
+}
+
+.product-info {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .order-product {
+        flex-direction: row; 
+        justify-content: space-between;
+    }
+
+    .product-card,
+    .order-form {
+        width: 48%; 
+    }
+}
+
+
+@media (max-width: 767px) {
+    .product-card {
+        width: 80%; 
+    }
+
+    .order-form {
+        width: 80%; 
+        padding: 10px; 
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* order success template */
+.order-success{
+    margin-bottom: 185px;
+    margin-top:150px;
+    border:2px solid rgb(255, 252, 252);
+    border-radius:10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.836);
+
+}

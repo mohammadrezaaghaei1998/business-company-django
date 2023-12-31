@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-4 subfield_detail text-center" style="color: black; background: white;">
+
+    {% comment %} {% for subfield in subfields|slice:":6" %} {% endcomment %}
+    {% for subfield in subfields%} 
+ 
+        <h1>{{ subfield.name }}</h1>
+        <hr>
+        <div class="row mt-2 mx-auto justify-content-center">
+            {% for subfield_item in subfield.subfield_item_set.all %}
+                <div class="col-md-4 col-lg-2"> 
+                    <!-- Adjust the column size based on your needs -->
+                    <a href="{% url 'product_detail' subfield_item_id=subfield_item.id %}" style="color: black; margin-right: 20px;">
+                        {{ subfield_item.name }}
+                    </a>
+                    <hr>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+
+
+{% endblock content %}
+
+
+
+

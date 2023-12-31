@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-4 subfield_detail text-center" style="color:black; background:white;">
+    {% for subfield_item in subfield_item %}
+        <p>{{ subfield_item.name }}</p> 
+        <a href="{% url 'subfield_item_detail' subfield_item.id %}">
+            <div class="col-md-2 subfield_product">{{ subfield_item.name }}</div>
+            
+        </a>
+        
+    {% endfor %}
+</div>
+
+
+{% endblock content %}
+
+
+

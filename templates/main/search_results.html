@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="container search-result-box mt-5">
+    <div class="row">
+        {% if products %}
+            <div class="col-md-4">
+                <div id="productCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner"  style="border:2px solid black; border-radius:10px;">
+                        {% for product in products %}
+                            {% for image in product.images_set.all %}
+                                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                    <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ product.name }} Image">
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <ul class="list-group">
+                    {% for product in products %}
+                        <li class="list-group-item" style="margin-bottom: 20px; padding: 10px;">
+                            <h3><i class="fas fa-cube"></i> Product name: {{ product.name }}</h3>
+                            <h3><i class="fas fa-box"></i> Quantity: {{ product.quantity }}</h3>
+                            <h3><i class="fas fa-dollar-sign"></i> Price: {{ product.price }}</h3>
+                            <h3><i class="fas fa-star"></i> Quality: {{ product.quality }}</h3>
+                            <h3><i class="fas fa-globe"></i> Origin: {{ product.origin }}</h3>
+                        </li>
+                    {% endfor %}
+                    {% if user.is_authenticated %}
+                        {% for product in products %}
+                         <a href="{% url 'order_product' product.id %}" class="btn btn-dark btn-outline-light mb-5">Order now</a>
+                        {% endfor %}
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-dark btn-outline-light">Login to Order</a>
+                    {% endif %}
+                </ul>
+            </div>
+           
+        {% else %}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center mt-5 mb-5">
+                        <p class="display-4 text-white">No results found.</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+    </div>
+</div>
+
+{% endblock content %}
+
+
+
+

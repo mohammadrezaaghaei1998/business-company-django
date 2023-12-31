@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="jumbotron text-center container fade-up">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="display-4" style="font-size: 2rem;">Welcome to Our Exclusive Investment Opportunity!</h1>
+            <p class="lead" style="font-size: 1rem;">At <strong style="font-weight:bold;">AMIRAN FOR INVESTMENT</strong>, we believe in creating opportunities for growth and prosperity.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4 fade-up">
+    <div class="row">
+        <div class="col-md-10 offset-md-1"> 
+            <h2 class="text-center mb-4">How It Works</h2>
+            <p>Explore our curated selection of high-quality products, each with its own distinct investment season.
+                This is the time when these products shine, presenting a golden opportunity for investors like you to
+                reap significant returns.</p>
+        </div>
+    </div>
+
+    <div class="row fade-up">
+        <div class="col-md-12 bg-light-box text-center">
+            <h2 class="mb-4">Customizable Profitability</h2>
+            <p>We understand that one size doesn't fit all. That's why we give you the flexibility to choose your
+                level of involvement. Adjust the profitability rate according to your investment strategy, ranging
+                from 5% to 40%. Whether you're a conservative investor or seeking higher returns, we've got options
+                tailored for you.</p>
+        </div>
+    </div>
+    <div class="row fade-up">
+        <div class="col-md-8 offset-md-2 bg-light-box">
+            <h2 class="text-center mb-4">Why Invest with Us</h2>
+            <ul>
+                <li><strong>Diversification:</strong> Spread your investments across a range of products, reducing
+                    risk and maximizing potential returns.</li>
+                <li><strong>Transparency:</strong> We believe in open communication. Track your investments, monitor
+                    performance, and stay informed about market trends.</li>
+                <li><strong>Expert Curation:</strong> Our team of experts carefully selects products with a proven
+                    track record, ensuring you invest in opportunities with real growth potential.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row fade-up" style="margin-bottom: 30px;">
+        <div class="col-md-8 offset-md-2 text-center">
+            <h2 class="mb-4">Get Started Today</h2>
+            <p>Seize the moment and embark on a journey of financial growth with Your Company Name. Our Investment
+                Opportunity is not just an option; it's a gateway to a brighter and more prosperous future. Take
+                control of your financial destiny and invest with confidence.</p>
+            <p><em>Your success is our success. Let's grow together.</em></p>
+            <a href="{% url 'investment_product' %}" class="btn btn-dark btn-lg explore-investment-button">Explore Exciting Investment Opportunities</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+

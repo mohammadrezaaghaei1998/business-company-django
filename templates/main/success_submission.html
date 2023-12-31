@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+{% comment %} <div class="container bg-primary" style="margin-bottom: 185px; margin-top:200px; border:2px solid black; border-radius:30px;">
+    <h2 class="text-center mt-4">Submission Successful!</h2>
+    <p class="text-center">Thank you for submitting your product for collaboration.</p>
+    <p class="text-center">Our team of experts will carefully review your submission, and we'll get back to you within 24 hours.</p>
+    <div class="text-center mt-3">
+        <p>For any urgent inquiries, please contact our support team.</p>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'home' %}"  style="color:white;">Back to Home</a>
+    </div>
+</div> {% endcomment %}
+
+
+<div class="container order-success">
+    <h2>Submission Successful!</h2>
+        <p>Thank you for submitting your product for collaboration.</p>
+        <p>Our team of experts will carefully review your submission, and we'll get back to you within 24 hours.</p>
+        {% comment %} <p>We value your trust in us and appreciate your business. If you have any urgent inquiries or additional information to provide, please feel free to reach out to our customer support.</p> {% endcomment %}
+        <div class="text-center mt-4">
+        <a href="{% url 'home' %}"  style="color:white;">Back to Home</a>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+

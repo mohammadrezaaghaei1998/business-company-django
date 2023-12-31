@@ -1,0 +1,31 @@
+.registration-container {
+    margin-top: 5%;
+    margin-bottom: 50px;
+}
+
+.registration-box {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.user-info-box {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #007bff;
+}
+
+.user-info-box form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.user-info-box .form-group {
+    margin-bottom: 15px;
+}

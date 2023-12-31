@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <!-- Header-->
+  <div class="p-5 text-center bg-image" style="background-image: url('{% static "assets/images/2.jpg" %}'); height: 535px;">
+      <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+        <div class="d-flex justify-content-center align-items-center h-100 mt-5">
+          <div class="text-white header-content">
+            <h1 class="mb-3">Welcome to Amiran for investment, where borders are not barriers</h1>
+            <h4 class="mb-3">Explore a world of seamless import and export solutions</h4>
+          </div>
+        </div>
+      </div>
+  </div>
+   <!--End Header-->
+
+
+  
+ 
+ <!-- About us -->
+ <section class="py-5">
+  <div class="container services">
+      <div class="row">
+          <div class="col-md-6 fade-up">
+              <img src="{% static 'assets/images/about_us.jpg' %}" alt="About Us Image" class="img-fluid rounded">
+          </div>
+
+          <div class="col-md-6 fade-up" style="animation-delay: 0.5s;">
+              <h2 class="font-weight-bold" id="about_us">About Us</h2>
+              <p class="lead">
+                Welcome to "AMIRAN FOR INVESTMENT", your hub for global trade, investment, and careers in Oman.
+                 As a dynamic newcomer, we simplify international transactions, drive strategic investments,
+                  and offer exciting career paths. Based in Muscat,
+                   we're dedicated to propelling businesses forward in the dynamic global marketplace.
+                    Join us on this journey towards simplified trade, strategic investments,
+                     and boundless career opportunities.
+              </p>
+             
+          </div>
+      </div>
+  </div>
+</section>
+    <!--End About us -->
+
+
+
+  
+    <!--Category -->
+    <div class="container mt-5 category">
+      <h2 class="text-center mb-4 fade-up" id="category">Categories</h2>
+      <div class="row justify-content-center">
+          {% for category in categories %}
+              <div class="col-md-2 mb-4 fade-up">
+                  <div class="card text-center" style="height: 190px;">
+                      <a href="{% url 'category_detail' category.id %}">
+                          <img src="{{ category.image.url }}" class="card-img-top" alt="Category Image">
+                          <div class="card-body">
+                              <h5 class="card-title">{{ category.name }}</h5>
+                          </div>
+                      </a>
+                  </div>
+              </div>
+              {% if forloop.counter|divisibleby:5 and not forloop.last %}
+                  </div><div class="row justify-content-center">
+              {% endif %}
+          {% endfor %}
+      </div>
+  
+    </div>
+    <!--Category  End-->
+
+
+
+
+<!--Services-->
+  <div class="containers mt-5 fade-up">
+    <h2 class="text-center mb-4" id="services">Services</h2>
+  
+    <div class="services-container">
+      <ul class="services-list" id="servicesList">
+        <li data-service="service1" style="margin-right:10px;">
+          <img src="{% static 'assets/images/service1.jpg' %}" alt="Service 1 Image">
+          Import & Export
+        </li>
+        <li data-service="service2" style="margin-right:10px;">
+          <img src="{% static 'assets/images/investment.jpg' %}" alt="Service 2 Image">
+          Investment
+        </li>
+        <li data-service="service3" style="margin-right:10px;">
+          <img src="{% static 'assets/images/product_assintance.jpg' %}" alt="Service 3 Image">
+          Product Search Assistance
+        </li>
+      </ul>
+  
+      <div class="service-description" id="serviceDescription">
+        <div data-service="service1" class="description"  style="display: none;" >
+          <h2> Import & Export</h2>
+          <p>We specialize in providing tailored import and export solutions, ensuring a seamless and efficient flow
+             of goods across international borders.
+          </p>
+          <p>With expert knowledge in navigating regulations and a
+              robust global network, we connect businesses to key markets, expanding their reach worldwide.
+          </p>
+          <p>Our reliable logistics, transparent processes, and cost-effective solutions make us the ideal
+              partner for businesses seeking success in the global marketplace.
+          </p>
+          <p>Whether you're an established player or new to international trade,
+                AMIRAN FOR INVESTMENT is here to simplify your journey and optimize your global operations."
+          </p>
+        </div>
+
+        <div data-service="service2" class="description"  style="display: none;">
+          <h2> Inevstment</h2>
+          <p>Explore strategic growth opportunities worldwide with AMIRAN FOR INVESTMENT,
+            your trusted global investment partner. Specializing in tailored investment solutions,
+            we provide deep market insights and a transparent approach to empower your financial journey.
+         </p>
+
+         
+          <p>Our diversified portfolios, crafted with a focus on risk management,
+             aim to deliver resilience in dynamic market conditions.
+             Leveraging our extensive global network, we offer unique and lucrative investment
+             opportunities in various countries. 
+         </p>
+
+         <p> Whether you're an experienced investor or new to the financial realm,
+          AMIRAN FOR INVESTMENT is dedicated to providing customized solutions that align with your goals.
+           Join us in navigating the world of finance with confidence and innovation.
+          </p>
+          <a href="{% url 'investment_product' %}">
+            <div class="text-center">
+              <button class=" btn btn-outline-light btn-dark mt-4 ">Explore opportunities</button>
+            </div>
+          </a>
+        </div>
+
+        <div data-service="service3" class="description"  style="display: none;">
+          <h2> Product Search Assistance!</h2>
+        <p>Discover the ease of our Product Search Assistance. Can't find what you need?</p>
+        <p>Click the "Product Search Assistance" button, fill the form, and let our team do the work.</p>
+        <p>We'll find your item, share details promptly, and guide you through a hassle-free ordering process.</p>
+        <p>Trust us to turn your product dreams into reality!</p>
+        {% if user.is_authenticated %}
+          <a href="{% url 'product_assistance' %}">
+            <div class="text-center">
+              <button class=" btn btn-outline-light btn-dark mt-4 ">Search Assistance</button>
+            </div>
+          </a>
+        {% else %}
+             <a href="{% url 'login' %}">
+              <button type="button" class="btn btn-dark my-2 my-sm-0 btn-block btn-outline-light">Log in to Submit</button>
+            </a>
+        {% endif %}
+
+        </div>
+        <p class="default-description">Select a service to see the description.</p>
+      </div>
+    </div>
+  </div>
+<!-- End Our Services -->
+
+ 
+
+
+
+ <!-- Contact Form Section -->
+ <section class="py-5">
+  <div class="container contact fade-up">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <h2 class="text-center mb-4" id="contact_us">Contact Us</h2>
+        <form action="{% url 'contact' %}" method="post">
+  
+          {% csrf_token %}
+  
+          <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+  
+          <div class="form-group">
+            <label for="email">Your Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+  
+          <div class="form-group">
+            <label for="message">Your Message:</label>
+            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+          </div>
+  
+          <button type="submit" class="btn btn-outline-light my-2 my-sm-0 btn-dark">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- End Contact Form Section -->
+
+
+
+  
+{% endblock content %}
